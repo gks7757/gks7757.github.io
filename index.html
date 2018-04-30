@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-  <style>
-    body{background-color: #aaa;}
-    h1{color: #fff;}
-  </style>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #map{width: 600px;height: 400px;}
+    </style>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=R2R5T4HYkyv7bVtHbkrH&submodules=geocoder"></script>
+    <script>
+        function init(){
+
+            new naver.maps.Map(document.getElementById('map'),{
+            center: new naver.maps.LatLng(37.3595704, 127.105399), //지도의 초기 중심 좌표
+            zoom: 8
+        });
+
+        };
+        window.addEventListener('load',function(){
+            init();
+        });
+//        window.onload=function(){} //이렇게하면 이벤트가 하나만먹는다?? 뭔소린지 이해안감
+    </script>
 </head>
 <body>
-  <div class="test"><h1>내 홈페이지</h1></div>
+    <div id="map"></div>
 </body>
 </html>
