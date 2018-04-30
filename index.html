@@ -8,23 +8,22 @@
     </style>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=R2R5T4HYkyv7bVtHbkrH&submodules=geocoder"></script>
     <script>
-        function init(){
-
-            new naver.maps.Map(document.getElementById('map'),{
-            center: new naver.maps.LatLng(37.3595704, 127.105399), //지도의 초기 중심 좌표
-            zoom: 11
-        });
+        function mapInit(x,y){
+            posObj = new naver.maps.LatLng(x,y)
+            obj = new naver.maps.Map(document.getElementById('map'),{
+                center: posObj, //지도의 초기 중심 좌표
+                zoom: 15
+            })
+            var marker = new naver.maps.Marker({
+                position: posObj,
+                map: obj
+            });
 
         };
         window.addEventListener('load',function(){
-            init();
+            mapInit(37.3595704, 127.105399);
         });
 //        window.onload=function(){} //이렇게하면 이벤트가 하나만먹는다?? 뭔소린지 이해안감
-        
-        var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(37.3595704, 127.105399),
-    map: map
-});
     </script>
 </head>
 <body>
